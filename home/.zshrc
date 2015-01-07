@@ -61,6 +61,7 @@ export EDITOR=vim
 PS1="\$(~/.rvm/bin/rvm-prompt) $PS1" # Add RVM info to the prompt
 
 #Fix the backspace key
-stty erase ^H
+stty erase '^?'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:node_modules/.bin" # Add RVM to PATH for scripting
