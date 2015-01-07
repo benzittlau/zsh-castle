@@ -44,6 +44,10 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+alias vi=vim
+
+bindkey -v
+
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH::/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/bzittlau/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/bzittlau/.composer/vendor/bin/
 
