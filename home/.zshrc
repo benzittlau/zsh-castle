@@ -44,9 +44,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Fix vi command and rake command
 alias vi=vim
+alias rake='noglob rake'
 
+# Use vim mode in the command line
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Customize to your needs...
 export PATH=/usr/local/bin:$PATH::/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/bzittlau/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/bzittlau/.composer/vendor/bin/
@@ -64,4 +68,3 @@ PS1="\$(~/.rvm/bin/rvm-prompt) $PS1" # Add RVM info to the prompt
 stty erase '^?'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:node_modules/.bin" # Add RVM to PATH for scripting
