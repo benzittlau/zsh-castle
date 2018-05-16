@@ -48,12 +48,22 @@ source $ZSH/oh-my-zsh.sh
 alias vi=vim
 alias rake='noglob rake'
 
+# Add some git aliases
+alias gc='git checkout'
+alias gcob='git checkout -b'
+# alias gpr="git symbolic-ref --short HEAD | cat - .github/PULL_REQUEST_TEMPLATE.md | GITHUB_TOKEN=`cat .github_token` hub pull-request -o -F -"
+gcot() { git checkout -t origin/$* }
+newgemset() { rvm --ruby-version use 2.4.1@$* --create }
+alias p4merge='/Applications/p4merge.app/Contents/MacOS/p4merge'
+
 # Use vim mode in the command line
-bindkey -v
-bindkey '^R' history-incremental-search-backward
+# Disable for now until I can figure out how to setup a bind
+# to enter this mode instead of having it on by default
+#bindkey -v
+#bindkey '^R' history-incremental-search-backward
 
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH::/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/bzittlau/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/bzittlau/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/bzittlau/.composer/vendor/bin/
+export PATH=$PATH:/Users/bzittlau/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/bzittlau/.composer/vendor/bin/
 
 # TMUXINATOR AUTO COMPLETION
 source ~/.tmuxinator/tmuxinator.zsh
@@ -67,4 +77,19 @@ PS1="\$(~/.rvm/bin/rvm-prompt) $PS1" # Add RVM info to the prompt
 #Fix the backspace key
 stty erase '^?'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Configure my go path
+export GOPATH="/Users/bzittlau/sandbox/go"
+
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin" # Add postgres to the path
+export PATH="$PATH:$GOPATH/bin" # Add postgres to the path
+export PATH="$PATH:/usr/local/sbin" # For rabbitmq
+
+# Enable bash style comments
+setopt interactivecomments
+
+# Navigating by words
+bindkey "˙" backward-word
+bindkey "¬" forward-word
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
